@@ -1,0 +1,2738 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lusweti Agrihub Africa | From Seed to Market, From Cow to Cup</title>
+  <meta name="description" content="Mobile-first farmer app for Githunguri, Kiambu County, Kenya. From Seed to Market, From Cow to Cup.">
+  <meta name="theme-color" content="#0A3A96">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Lusweti Agri">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/assets/aistudio/lusweti_logo_full_d6920cc9.png">
+  <link rel="icon" type="image/png" href="/assets/aistudio/lusweti_logo_full_d6920cc9.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+  <style>
+    /* ----------------------------------------------------
+       LUSWETI AGRIHUB AFRICA - COMPLETE SELF-CONTAINED CSS
+       ---------------------------------------------------- */
+    :root {
+      --brand-blue: #0A3A96;
+      --brand-blue-hover: #072a6e;
+      --brand-green: #0B6E0B;
+      --brand-green-hover: #085508;
+      --brand-yellow: #F2B33D;
+      --bg-canvas: #F7F8F5;
+      --bg-card: #FFFFFF;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --border-subtle: #E2E8F0;
+      --border-card: #E5E9F0;
+      --font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    }
+
+    .dark {
+      --brand-blue: #2563EB;
+      --brand-blue-hover: #1D4ED8;
+      --brand-green: #10B981;
+      --brand-green-hover: #059669;
+      --brand-yellow: #FBBF24;
+      --bg-canvas: #0B1329;
+      --bg-card: #16213E;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border-subtle: #1E293B;
+      --border-card: #2A3859;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      font-family: var(--font-family);
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      min-height: 100vh;
+      touch-action: manipulation;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    body {
+      padding-bottom: 75px;
+    }
+
+    .app-container {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 12px 14px 24px;
+    }
+
+    /* HEADER */
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.2s;
+    }
+    .dark .app-header {
+      background: rgba(11, 19, 41, 0.95);
+    }
+    .header-inner {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 0 14px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .brand-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+    .brand-emblem {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      border: 2px solid rgba(10, 58, 150, 0.2);
+      flex-shrink: 0;
+    }
+    .brand-emblem img {
+      width: 170%;
+      height: 170%;
+      object-fit: cover;
+      object-position: 50% 10%;
+    }
+    .brand-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--brand-blue);
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .icon-btn {
+      min-height: 38px;
+      min-width: 38px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .icon-btn:active {
+      transform: scale(0.96);
+    }
+    .icon-btn-download {
+      background: var(--brand-blue);
+      color: #FFFFFF;
+      border: none;
+    }
+    .icon-btn-download:hover {
+      background: var(--brand-blue-hover);
+    }
+    .cart-btn {
+      position: relative;
+      background: rgba(11, 110, 11, 0.1);
+      color: var(--brand-green);
+      border: none;
+    }
+    .cart-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border-radius: 9px;
+      background: var(--brand-green);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* BOTTOM NAV */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border-subtle);
+      transition: background 0.2s;
+    }
+    .dark .bottom-nav {
+      background: rgba(11, 19, 41, 0.95);
+    }
+    .bottom-nav-inner {
+      max-width: 580px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      height: 62px;
+      align-items: center;
+    }
+    .nav-tab-btn {
+      background: none;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 2px;
+      position: relative;
+      transition: color 0.15s;
+    }
+    .nav-tab-btn.active {
+      color: var(--brand-blue);
+      font-weight: 800;
+    }
+    .nav-tab-btn.active.shop-tab {
+      color: var(--brand-green);
+    }
+    .nav-tab-btn .tab-icon-wrap {
+      padding: 4px 10px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .nav-tab-btn.active .tab-icon-wrap {
+      background: rgba(10, 58, 150, 0.12);
+    }
+    .dark .nav-tab-btn.active .tab-icon-wrap {
+      background: rgba(37, 99, 235, 0.2);
+    }
+    .nav-tab-btn.active.shop-tab .tab-icon-wrap {
+      background: rgba(11, 110, 11, 0.15);
+    }
+
+    /* CARDS & GENERAL UI */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      margin-bottom: 14px;
+    }
+    .hero-logo-card {
+      text-align: center;
+      padding: 18px 14px;
+    }
+    .full-logo-img {
+      max-width: 270px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 10px;
+      display: block;
+      object-fit: contain;
+    }
+    .tag-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(10, 58, 150, 0.08);
+      color: var(--text-main);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* FOUR LARGE TILES ON HOME */
+    .tile-order-inputs {
+      background: #0B6E0B;
+      color: #FFFFFF;
+      border-radius: 20px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: inherit;
+      box-shadow: 0 4px 12px rgba(11, 110, 11, 0.25);
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+      min-height: 94px;
+      transition: transform 0.15s, background 0.15s;
+    }
+    .tile-order-inputs:active {
+      transform: scale(0.98);
+      background: #085508;
+    }
+    .tile-order-inner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 2;
+    }
+    .tile-icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .tile-order-title {
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge-top {
+      background: var(--brand-yellow);
+      color: #0F172A;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 10px;
+      text-transform: uppercase;
+    }
+    .tile-order-desc {
+      font-size: 12px;
+      color: #E2F5E2;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .tile-order-meta {
+      font-size: 11px;
+      color: #C6ECC6;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .tiles-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    @media (min-width: 480px) {
+      .tiles-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .tile-secondary {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 18px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      color: var(--text-main);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      transition: all 0.15s;
+    }
+    .tile-secondary:active {
+      transform: scale(0.98);
+    }
+    @media (min-width: 480px) {
+      .tile-secondary {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    .tile-sec-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-learn {
+      background: rgba(10, 58, 150, 0.1);
+      color: var(--brand-blue);
+    }
+    .icon-expert {
+      background: rgba(242, 179, 61, 0.2);
+      color: #B45309;
+    }
+    .dark .icon-expert {
+      color: #FBBF24;
+    }
+    .icon-providers {
+      background: rgba(11, 110, 11, 0.12);
+      color: var(--brand-green);
+    }
+    .tile-sec-title {
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .tile-sec-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* FILTER CHIPS */
+    .chips-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 2px 10px;
+      margin-bottom: 8px;
+      scrollbar-width: none;
+    }
+    .chips-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .chip-btn {
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-main);
+      transition: all 0.15s;
+    }
+    .chip-btn.active {
+      background: var(--brand-blue);
+      color: #FFFFFF;
+      border-color: var(--brand-blue);
+    }
+
+    /* PRODUCT CARD */
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 18px;
+      padding: 14px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    @media (min-width: 480px) {
+      .product-card {
+        flex-direction: row;
+      }
+    }
+    .product-img-box {
+      width: 100%;
+      height: 120px;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      background: #E2E8F0;
+      flex-shrink: 0;
+    }
+    @media (min-width: 480px) {
+      .product-img-box {
+        width: 110px;
+        height: 110px;
+      }
+    }
+    .product-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-unit-tag {
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+      background: rgba(0,0,0,0.75);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+    .product-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-title {
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .product-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 4px 0;
+      line-height: 1.35;
+    }
+    .product-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .product-price {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--brand-green);
+      font-variant-numeric: tabular-nums;
+    }
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-canvas);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+    }
+    .qty-btn {
+      min-width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      border: none;
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .qty-btn-add {
+      background: var(--brand-green);
+      color: #FFFFFF;
+    }
+    .qty-btn:active {
+      transform: scale(0.92);
+    }
+    .qty-num {
+      min-width: 28px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    .add-cart-btn {
+      min-height: 44px;
+      padding: 8px 16px;
+      background: var(--brand-green);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .add-cart-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* STICKY BOTTOM BAR */
+    .sticky-order-bar {
+      position: fixed;
+      bottom: 64px;
+      left: 0;
+      right: 0;
+      z-index: 35;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border-subtle);
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.06);
+      padding: 10px 14px;
+    }
+    .dark .sticky-order-bar {
+      background: rgba(11, 19, 41, 0.96);
+    }
+    .sticky-order-inner {
+      max-width: 580px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .sticky-text {
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .sticky-total {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--brand-green);
+      font-variant-numeric: tabular-nums;
+    }
+    .btn-place-order {
+      min-height: 48px;
+      padding: 0 20px;
+      background: var(--brand-blue);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(10, 58, 150, 0.3);
+      transition: all 0.15s;
+    }
+    .btn-place-order:active {
+      transform: scale(0.97);
+    }
+
+    /* MODALS */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+    }
+    @media (min-width: 540px) {
+      .modal-backdrop {
+        align-items: center;
+        padding: 20px;
+      }
+    }
+    .modal-box {
+      width: 100%;
+      max-width: 520px;
+      background: var(--bg-card);
+      border-radius: 24px 24px 0 0;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border-card);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    @media (min-width: 540px) {
+      .modal-box {
+        border-radius: 24px;
+      }
+    }
+    .modal-header {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-title {
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .modal-close-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: none;
+      background: var(--bg-canvas);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-body {
+      padding: 18px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    /* FORMS */
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--brand-blue);
+      box-shadow: 0 0 0 2px rgba(10, 58, 150, 0.2);
+    }
+    .btn-submit {
+      width: 100%;
+      min-height: 50px;
+      background: var(--brand-green);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .btn-submit:active {
+      transform: scale(0.98);
+    }
+
+    .sub-tabs {
+      display: flex;
+      background: var(--border-subtle);
+      padding: 4px;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      gap: 4px;
+    }
+    .sub-tab-btn {
+      flex: 1;
+      padding: 10px 8px;
+      border-radius: 10px;
+      border: none;
+      background: none;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: center;
+    }
+    .sub-tab-btn.active {
+      background: var(--brand-blue);
+      color: #FFFFFF;
+    }
+
+    /* M-PESA POPUP */
+    .mpesa-stk-box {
+      background: #FFFFFF;
+      border: 4px solid #0B6E0B;
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 320px;
+      margin: 0 auto;
+      color: #0F172A;
+      text-align: left;
+    }
+    .mpesa-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid #E2E8F0;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #0B6E0B;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+<script src="/_aistudio-iframe.js?v=6634132a"></script><script src="https://cdn.jsdelivr.net/npm/html2canvas-pro@2.0.4"></script><style>.aistudio-hover-highlight { box-shadow: inset 0 0 0 0.5px white, inset 0 0 0 1.5px rgba(128,128,128,0.6) !important; }.aistudio-active-highlight { outline: 2px solid #87a9ff !important; outline-offset: -2px !important; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.3), inset 0 0 0 0.5px rgba(0,0,0,0.3) !important; }.aistudio-generating-blur { filter: blur(5px) grayscale(100%) brightness(28%) !important; transition: filter 0.3s ease; }#aistudio-focus-mode-tag { position: absolute; display: none; align-items: center; gap: 4px; background: #87a9ff; border-radius: 12px; z-index: 10000; padding: 8px; color: #32302c; font-family: Inter, sans-serif; font-size: 14px; font-style: normal; font-weight: 500; line-height: 21px; pointer-events: none; }#aistudio-hover-mode-tag { position: absolute; display: none; align-items: center; gap: 4px; background: rgba(128,128,128,0.6); border-radius: 12px; z-index: 10000; padding: 8px; color: white; font-family: Inter, sans-serif; font-size: 14px; font-style: normal; font-weight: 500; line-height: 21px; pointer-events: none; }.aistudio-img-icon { display: none; vertical-align: middle; pointer-events: auto; cursor: pointer; }.aistudio-img-icon.visible { display: inline-flex; }#aistudio-focus-mode-tag .aistudio-img-icon { position: relative; width: 26px; height: 26px; background: #32302c; border-radius: 6px; margin: -4px -4px -4px 0; }#aistudio-focus-mode-tag .aistudio-img-icon::before { content: ""; position: absolute; top: 4px; left: 4px; width: 18px; height: 18px; background-color: white; -webkit-mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); mask-size: contain; mask-repeat: no-repeat; }#aistudio-hover-mode-tag .aistudio-img-icon { position: relative; width: 18px; height: 18px; margin-left: 4px; }#aistudio-hover-mode-tag .aistudio-img-icon::before { content: ""; position: absolute; top: 0; left: 0; width: 18px; height: 18px; background-color: white; -webkit-mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; mask-image: url("https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/edit_fix_auto/default/24px.svg"); mask-size: contain; mask-repeat: no-repeat; }#aistudio-focus-mode-tag .aistudio-img-icon:hover, #aistudio-hover-mode-tag .aistudio-img-icon:hover { background: #424242 !important; }#aistudio-focus-mode-tag .aistudio-img-icon:active, #aistudio-hover-mode-tag .aistudio-img-icon:active { background: #393f51 !important; }</style></head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="app-header">
+    <div class="header-inner">
+      <button class="brand-btn" onclick="navigateTo('home')">
+        <div class="brand-emblem">
+          <img src="/assets/aistudio/lusweti_logo_full_d6920cc9.png" alt="Lusweti Logo">
+        </div>
+        <div>
+          <div class="brand-title">Lusweti Agrihub</div>
+          <div class="brand-sub">Githunguri, Kiambu</div>
+        </div>
+      </button>
+
+      <div class="header-actions">
+        <!-- Install App to Phone Button -->
+        <button class="icon-btn" onclick="triggerPwaInstall()" style="background:var(--brand-green); color:#FFFFFF; border:none; padding:6px 11px;" title="Install on Android Phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          <span style="font-weight:800;">Install</span>
+        </button>
+
+        <!-- Download Single File HTML -->
+        <button class="icon-btn icon-btn-download" onclick="downloadSingleFileHtml()" title="Download single-file index.html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>HTML</span>
+        </button>
+
+        <!-- User Login / Profile / Admin Trigger -->
+        <button class="icon-btn" onclick="openAuthModal()" id="user-header-btn" title="Login / Profile / Admin" style="background:rgba(10,58,150,0.1); color:var(--brand-blue); border:none;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span id="user-header-text">Login</span>
+        </button>
+
+        <!-- Language Toggle -->
+        <button class="icon-btn" onclick="toggleLanguage()" id="lang-btn" title="Toggle Kiswahili / English">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <span id="lang-text">SWA</span>
+        </button>
+
+        <!-- Dark Mode Toggle -->
+        <button class="icon-btn" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+          <span id="theme-icon">🌙</span>
+        </button>
+
+        <!-- Cart Trigger -->
+        <button class="icon-btn cart-btn" onclick="openCartModal()" title="View Cart">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="cart-badge hidden" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="app-container">
+
+    <!-- SCREEN 1: HOME -->
+    <div id="screen-home">
+      <!-- Full Official Brand Card -->
+      <div class="card hero-logo-card">
+        <img src="/assets/aistudio/lusweti_logo_full_d6920cc9.png" alt="Lusweti Agrihub Africa Full Logo" class="full-logo-img">
+        <div class="tag-location">
+          <span>📍 Githunguri, Kiambu County</span>
+          <span>|</span>
+          <span style="color:var(--brand-green)">Kenya</span>
+        </div>
+      </div>
+
+      <!-- Install on Android Phone Banner (For Farmers) -->
+      <div class="card" style="background: linear-gradient(135deg, #0B6E0B 0%, #064e06 100%); color: #FFFFFF; border: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 4px 14px rgba(11,110,11,0.25);">
+        <div>
+          <div style="font-size: 14px; font-weight: 800; display: flex; align-items: center; gap: 6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            <span data-en="Install App on Phone" data-sw="Weka App Kwenye Simu">Install App on Phone</span>
+          </div>
+          <div style="font-size: 11px; color: #E2F5E2; margin-top: 2px;" data-en="Tap to install round logo on your home screen" data-sw="Gusa kusakinisha nembo ya Lusweti kwenye simu">Tap to install round logo on your home screen</div>
+        </div>
+        <button onclick="triggerPwaInstall()" style="background: #FFFFFF; color: #0B6E0B; border: none; border-radius: 12px; padding: 10px 16px; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+          Install Now
+        </button>
+      </div>
+
+      <!-- Official M-Pesa Payment Details (Paybill 522522, Acc 1276891598) -->
+      <div class="card" style="background: #0F172A; color: #FFFFFF; border: 2px solid #0B6E0B; padding: 14px 16px; margin-bottom: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 10px;">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span style="background: #0B6E0B; color: #FFFFFF; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 6px;">LIPA NA M-PESA</span>
+            <span style="font-size: 11px; font-weight: 700; color: #94A3B8;">PAYBILL</span>
+          </div>
+          <span style="font-size: 11px; color: #10B981; font-weight: 800;">Official Channel</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+          <div style="background: #1E293B; padding: 10px; border-radius: 10px;">
+            <div style="font-size: 10px; color: #94A3B8; font-weight: 600;">Business No. (Paybill)</div>
+            <div style="font-size: 17px; font-weight: 800; color: #FBBF24; font-family: monospace; letter-spacing: 0.5px; margin-top: 2px;">522522</div>
+            <button type="button" onclick="copyToClipboard('522522', this)" style="background: none; border: none; color: #38BDF8; font-size: 11px; font-weight: 700; cursor: pointer; padding: 2px 0; margin-top: 2px;">Copy Paybill</button>
+          </div>
+
+          <div style="background: #1E293B; padding: 10px; border-radius: 10px;">
+            <div style="font-size: 10px; color: #94A3B8; font-weight: 600;">Account Number</div>
+            <div style="font-size: 16px; font-weight: 800; color: #FFFFFF; font-family: monospace; letter-spacing: 0.5px; margin-top: 2px;">1276891598</div>
+            <button type="button" onclick="copyToClipboard('1276891598', this)" style="background: none; border: none; color: #38BDF8; font-size: 11px; font-weight: 700; cursor: pointer; padding: 2px 0; margin-top: 2px;">Copy Account</button>
+          </div>
+        </div>
+
+        <div style="font-size: 11px; color: #CBD5E1; display: flex; justify-content: space-between; align-items: center;">
+          <span>Business Name: <strong>LUSWETI AGRIHUB AFRICA</strong></span>
+          <span style="color: #94A3B8; font-size: 10px;">Githunguri</span>
+        </div>
+      </div>
+
+      <!-- Single File Offline HTML Download -->
+      <div class="card" style="background: rgba(10,58,150,0.06); border: 1px solid rgba(10,58,150,0.2); display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; margin-bottom: 14px;">
+        <div style="font-size: 12px; color: var(--text-main);">
+          <strong style="color: var(--brand-blue);">📥 Offline File:</strong> Download single HTML to run with no server.
+        </div>
+        <button onclick="downloadSingleFileHtml()" class="icon-btn" style="background: var(--brand-blue); color: #FFF; border: none; padding: 6px 12px; font-size: 11px;">
+          Download HTML
+        </button>
+      </div>
+
+      <!-- 4 LARGE ICON TILES -->
+      <div style="margin-bottom: 14px;">
+        <!-- 1. ORDER INPUTS (GREEN, FIRST & MOST PROMINENT) -->
+        <button class="tile-order-inputs" onclick="navigateTo('shop')">
+          <div class="tile-order-inner">
+            <div class="tile-icon-box">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            </div>
+            <div>
+              <div class="tile-order-title">
+                <span data-en="Order Inputs" data-sw="Nunua Pembejeo">Order Inputs</span>
+                <span class="badge-top" data-en="Top" data-sw="Haraka">Top</span>
+              </div>
+              <div class="tile-order-desc" data-en="Feeds, seeds, fertilizer &amp; agrovet supplies" data-sw="Chakula cha ng'ombe, mbegu, mbolea na dawa">Feeds, seeds, fertilizer &amp; agrovet supplies</div>
+              <div class="tile-order-meta">KES Delivery in Githunguri • M-Pesa Ready</div>
+            </div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+
+        <!-- TILES 2, 3, 4 -->
+        <div class="tiles-grid-3">
+          <!-- 2. LEARN -->
+          <button class="tile-secondary" onclick="navigateTo('learn')">
+            <div class="tile-sec-icon icon-learn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <div>
+              <div class="tile-sec-title" data-en="Learn" data-sw="Mafunzo">Learn</div>
+              <div class="tile-sec-desc" data-en="Dairy &amp; crop video lessons" data-sw="Masomo ya ng'ombe na mazao">Dairy &amp; crop video lessons</div>
+            </div>
+          </button>
+
+          <!-- 3. ASK EXPERT -->
+          <button class="tile-secondary" onclick="navigateTo('expert')">
+            <div class="tile-sec-icon icon-expert">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <div>
+              <div class="tile-sec-title" data-en="Ask Expert" data-sw="Uliza Mtaalamu">Ask Expert</div>
+              <div class="tile-sec-desc" data-en="Direct vet &amp; agronomist advice" data-sw="Pata msaada wa daktari">Direct vet &amp; agronomist advice</div>
+            </div>
+          </button>
+
+          <!-- 4. PROVIDERS -->
+          <button class="tile-secondary" onclick="navigateTo('providers')">
+            <div class="tile-sec-icon icon-providers">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <div class="tile-sec-title" data-en="Providers" data-sw="Watoa Huduma">Providers</div>
+              <div class="tile-sec-desc" data-en="Vets, AI, agrovets Kiambu" data-sw="Vets, AI, agrovets Kiambu">Vets, AI, agrovets Kiambu</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Githunguri Vet Hotline -->
+      <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:10px; background:rgba(10,58,150,0.06); border-color:rgba(10,58,150,0.2);">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:40px; height:40px; border-radius:12px; background:var(--brand-blue); color:#FFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
+          <div>
+            <div style="font-size:12px; font-weight:800; color:var(--brand-blue);" data-en="Vet &amp; AI Emergency Line" data-sw="Dharura ya Ng'ombe &amp; AI">Vet &amp; AI Emergency Line</div>
+            <div style="font-size:12px; font-weight:700;">0722 418 903 (Dr. Mwangi, Githunguri)</div>
+          </div>
+        </div>
+        <a href="tel:0722418903" class="icon-btn" style="background:var(--brand-blue); color:#FFF; border:none; padding:8px 14px; text-decoration:none;">Call</a>
+      </div>
+    </div>
+
+    <!-- SCREEN 2: ORDER INPUTS / SHOP -->
+    <div id="screen-shop" class="hidden">
+      <!-- Sub-tabs: Products vs Orders -->
+      <div class="sub-tabs">
+        <button class="sub-tab-btn active" id="btn-sub-products" onclick="switchShopSubTab('products')" data-en="Products Catalog" data-sw="Orodha ya Pembejeo">Products Catalog</button>
+        <button class="sub-tab-btn" id="btn-sub-orders" onclick="switchShopSubTab('orders')" data-en="Orders Tab" data-sw="Tab ya Oda">Orders Tab</button>
+      </div>
+
+      <!-- PRODUCTS VIEW -->
+      <div id="view-products">
+        <!-- Category chips -->
+        <div class="chips-bar" id="products-category-chips">
+        <button class="chip-btn active" onclick="filterProductsCategory('All')">
+          All
+        </button>
+      
+        <button class="chip-btn " onclick="filterProductsCategory('Livestock Feeds')">
+          Livestock Feeds
+        </button>
+      
+        <button class="chip-btn " onclick="filterProductsCategory('Seeds &amp; Planting')">
+          Seeds &amp; Planting
+        </button>
+      
+        <button class="chip-btn " onclick="filterProductsCategory('Fertilizers')">
+          Fertilizers
+        </button>
+      
+        <button class="chip-btn " onclick="filterProductsCategory('Veterinary &amp; Health')">
+          Veterinary &amp; Health
+        </button>
+      
+        <button class="chip-btn " onclick="filterProductsCategory('Farm Tools')">
+          Farm Tools
+        </button>
+      </div>
+
+        <!-- Products List -->
+        <div id="products-list">
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="https://images.unsplash.com/photo-1546445317-29f4545e9d53?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="High Yield Dairy Meal (24% CP)" loading="lazy">
+              <div class="product-unit-tag">50kg bag</div>
+            </div>
+            <div class="product-info">
+              <div>
+                <h4 class="product-title">High Yield Dairy Meal (24% CP)</h4>
+                <div class="product-desc">Formulated for lactating cows producing over 15L daily. Boosts butterfat.</div>
+                <div style="font-size:11px; color:var(--text-muted);">Supplier: Githunguri Feed Mills</div>
+              </div>
+              <div class="product-bottom-row">
+                <div class="product-price">KES 2,850</div>
+                <div>
+                  
+                    <button class="add-cart-btn" onclick="updateQty('p1', 1)">
+                      <span>+</span>
+                      <span>Add to Cart</span>
+                    </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Boma Rhodes Certified Grass Seed" loading="lazy">
+              <div class="product-unit-tag">1kg pack</div>
+            </div>
+            <div class="product-info">
+              <div>
+                <h4 class="product-title">Boma Rhodes Certified Grass Seed</h4>
+                <div class="product-desc">High-tiller forage grass, drought-hardy, rich protein fodder for silage &amp; hay.</div>
+                <div style="font-size:11px; color:var(--text-muted);">Supplier: Kenya Seed Kiambu Depot</div>
+              </div>
+              <div class="product-bottom-row">
+                <div class="product-price">KES 950</div>
+                <div>
+                  
+                    <button class="add-cart-btn" onclick="updateQty('p2', 1)">
+                      <span>+</span>
+                      <span>Add to Cart</span>
+                    </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Mavuno Planting NPK Fertilizer (Micro-nutrients)" loading="lazy">
+              <div class="product-unit-tag">50kg bag</div>
+            </div>
+            <div class="product-info">
+              <div>
+                <h4 class="product-title">Mavuno Planting NPK Fertilizer (Micro-nutrients)</h4>
+                <div class="product-desc">Fortified with Zinc and Boron for Kiambu red acidic soils. Great for maize.</div>
+                <div style="font-size:11px; color:var(--text-muted);">Supplier: Kiambu Farmers Agro Supplies</div>
+              </div>
+              <div class="product-bottom-row">
+                <div class="product-price">KES 3,400</div>
+                <div>
+                  
+                    <button class="add-cart-btn" onclick="updateQty('p3', 1)">
+                      <span>+</span>
+                      <span>Add to Cart</span>
+                    </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Dutch Holstein-Friesian AI Semen Straw" loading="lazy">
+              <div class="product-unit-tag">1 Straw dose</div>
+            </div>
+            <div class="product-info">
+              <div>
+                <h4 class="product-title">Dutch Holstein-Friesian AI Semen Straw</h4>
+                <div class="product-desc">Top-tier Dutch dairy genetics with verified 30L+ daughter production.</div>
+                <div style="font-size:11px; color:var(--text-muted);">Supplier: Central AI Semen Station Kagwe</div>
+              </div>
+              <div class="product-bottom-row">
+                <div class="product-price">KES 1,800</div>
+                <div>
+                  
+                    <button class="add-cart-btn" onclick="updateQty('p4', 1)">
+                      <span>+</span>
+                      <span>Add to Cart</span>
+                    </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Dairy Cow Post-Milking Iodine Teat Dip" loading="lazy">
+              <div class="product-unit-tag">5 Litres</div>
+            </div>
+            <div class="product-info">
+              <div>
+                <h4 class="product-title">Dairy Cow Post-Milking Iodine Teat Dip</h4>
+                <div class="product-desc">Rapid-action antiseptic dip with cosmetic glycerin. Prevents mastitis.</div>
+                <div style="font-size:11px; color:var(--text-muted);">Supplier: Fresha Agrovet Githunguri</div>
+              </div>
+              <div class="product-bottom-row">
+                <div class="product-price">KES 1,650</div>
+                <div>
+                  
+                    <button class="add-cart-btn" onclick="updateQty('p5', 1)">
+                      <span>+</span>
+                      <span>Add to Cart</span>
+                    </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Silage Fermentation Inoculant" loading="lazy">
+              <div class="product-unit-tag">100g sachet</div>
+            </div>
+            <div class="product-info">
+              <div>
+                <h4 class="product-title">Silage Fermentation Inoculant</h4>
+                <div class="product-desc">Live lactic acid bacteria for faster pit fermentation and zero mold.</div>
+                <div style="font-size:11px; color:var(--text-muted);">Supplier: Githunguri Dairy Co-op</div>
+              </div>
+              <div class="product-bottom-row">
+                <div class="product-price">KES 750</div>
+                <div>
+                  
+                    <button class="add-cart-btn" onclick="updateQty('p6', 1)">
+                      <span>+</span>
+                      <span>Add to Cart</span>
+                    </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Certified Hybrid Maize SC Duma 43" loading="lazy">
+              <div class="product-unit-tag">2kg pack</div>
+            </div>
+            <div class="product-info">
+              <div>
+                <h4 class="product-title">Certified Hybrid Maize SC Duma 43</h4>
+                <div class="product-desc">Early maturing high-yield maize suited for high altitude Kiambu conditions.</div>
+                <div style="font-size:11px; color:var(--text-muted);">Supplier: Komothai Seed Agrovet</div>
+              </div>
+              <div class="product-bottom-row">
+                <div class="product-price">KES 680</div>
+                <div>
+                  
+                    <button class="add-cart-btn" onclick="updateQty('p7', 1)">
+                      <span>+</span>
+                      <span>Add to Cart</span>
+                    </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Mineral Salt Lick Brick with Selenium" loading="lazy">
+              <div class="product-unit-tag">5kg block</div>
+            </div>
+            <div class="product-info">
+              <div>
+                <h4 class="product-title">Mineral Salt Lick Brick with Selenium</h4>
+                <div class="product-desc">Calcium, Phosphorus &amp; Selenium for cow fertility and heat detection.</div>
+                <div style="font-size:11px; color:var(--text-muted);">Supplier: Gatamaiyu Agrovet</div>
+              </div>
+              <div class="product-bottom-row">
+                <div class="product-price">KES 480</div>
+                <div>
+                  
+                    <button class="add-cart-btn" onclick="updateQty('p8', 1)">
+                      <span>+</span>
+                      <span>Add to Cart</span>
+                    </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Heavy Duty 2-Knife Chaff Cutter Blades" loading="lazy">
+              <div class="product-unit-tag">Set of 2</div>
+            </div>
+            <div class="product-info">
+              <div>
+                <h4 class="product-title">Heavy Duty 2-Knife Chaff Cutter Blades</h4>
+                <div class="product-desc">High carbon hardened steel blades for chopping Napier grass and maize fodder.</div>
+                <div style="font-size:11px; color:var(--text-muted);">Supplier: Kiambu Agro Tools</div>
+              </div>
+              <div class="product-bottom-row">
+                <div class="product-price">KES 1,400</div>
+                <div>
+                  
+                    <button class="add-cart-btn" onclick="updateQty('p9', 1)">
+                      <span>+</span>
+                      <span>Add to Cart</span>
+                    </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ORDERS VIEW -->
+      <div id="view-orders" class="hidden">
+        <div class="card" style="background:rgba(10,58,150,0.06); font-size:12px; font-weight:600;">
+          <strong style="color:var(--brand-blue);">Orders Tab:</strong> Review placed orders, M-Pesa prompt status, and Githunguri delivery tracking.
+        </div>
+        <div id="orders-list"></div>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: LEARN -->
+    <div id="screen-learn" class="hidden">
+      <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+        <div>
+          <h2 style="font-size:16px; font-weight:800;" data-en="Farmer Training &amp; Lessons" data-sw="Mafunzo ya Wakulima">Farmer Training &amp; Lessons</h2>
+          <p style="font-size:11px; color:var(--text-muted);" data-en="Practical video lessons for dairy and crop productivity in Kiambu" data-sw="Mbinu za kisasa za ufugaji na kilimo Kiambu">Practical video lessons for dairy and crop productivity in Kiambu</p>
+        </div>
+        <button class="icon-btn" onclick="toggleLanguage()" style="background:rgba(10,58,150,0.1); color:var(--brand-blue); border:none; padding:8px 12px;">
+          <span id="learn-lang-btn-text">Badili: Kiswahili</span>
+        </button>
+      </div>
+
+      <!-- Lesson Category Chips -->
+      <div class="chips-bar" id="lesson-category-chips">
+        <button class="chip-btn active" onclick="filterLessonsCategory('All')">
+          All
+        </button>
+      
+        <button class="chip-btn " onclick="filterLessonsCategory('Crops')">
+          Crops
+        </button>
+      
+        <button class="chip-btn " onclick="filterLessonsCategory('Livestock')">
+          Livestock
+        </button>
+      
+        <button class="chip-btn " onclick="filterLessonsCategory('Finance')">
+          Finance
+        </button>
+      </div>
+
+      <!-- Lessons List -->
+      <div id="lessons-list">
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:700; color:var(--brand-blue); margin-bottom:4px;">
+              <span>LIVESTOCK</span>
+              <span style="color:var(--text-muted);">6 min</span>
+            </div>
+            <h3 style="font-size:15px; font-weight:800; margin-bottom:6px; line-height:1.3;">How to Formulate Silage &amp; Feed for 25+ Litres Milk Daily</h3>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">Step-by-step masterclass on harvesting maize at dough stage and feeding 15kg silage + 6kg dairy meal per cow.</p>
+            <div style="font-size:11px; color:var(--text-muted); margin-bottom:12px;">Instructor: <strong>Dr. John Mwangi (Githunguri Vet Specialist)</strong></div>
+            <button class="icon-btn" onclick="openLessonModal('l1')" style="width:100%; padding:10px; background:var(--brand-blue); color:#FFF; border:none;">
+              ▶ Watch Lesson &amp; Key Tips
+            </button>
+          </div>
+        
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:700; color:var(--brand-blue); margin-bottom:4px;">
+              <span>LIVESTOCK</span>
+              <span style="color:var(--text-muted);">5 min</span>
+            </div>
+            <h3 style="font-size:15px; font-weight:800; margin-bottom:6px; line-height:1.3;">Early Mastitis Detection &amp; California Mastitis Test (CMT)</h3>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">Learn how to detect subclinical mastitis before clots appear in milk.</p>
+            <div style="font-size:11px; color:var(--text-muted); margin-bottom:12px;">Instructor: <strong>Vet Officer Grace Wambui (Kiambu)</strong></div>
+            <button class="icon-btn" onclick="openLessonModal('l2')" style="width:100%; padding:10px; background:var(--brand-blue); color:#FFF; border:none;">
+              ▶ Watch Lesson &amp; Key Tips
+            </button>
+          </div>
+        
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:700; color:var(--brand-blue); margin-bottom:4px;">
+              <span>CROPS</span>
+              <span style="color:var(--text-muted);">4 min</span>
+            </div>
+            <h3 style="font-size:15px; font-weight:800; margin-bottom:6px; line-height:1.3;">Proper Spacing &amp; Basal Fertilization for Kiambu Hybrid Maize</h3>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">Achieve 35+ bags per acre with 75cm x 25cm spacing and balanced NPK fertilizer placement.</p>
+            <div style="font-size:11px; color:var(--text-muted); margin-bottom:12px;">Instructor: <strong>Agronomist Peter Karanja (Githunguri)</strong></div>
+            <button class="icon-btn" onclick="openLessonModal('l3')" style="width:100%; padding:10px; background:var(--brand-blue); color:#FFF; border:none;">
+              ▶ Watch Lesson &amp; Key Tips
+            </button>
+          </div>
+        
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:700; color:var(--brand-blue); margin-bottom:4px;">
+              <span>CROPS</span>
+              <span style="color:var(--text-muted);">6 min</span>
+            </div>
+            <h3 style="font-size:15px; font-weight:800; margin-bottom:6px; line-height:1.3;">Managing Fall Armyworm &amp; Coffee Pests in Kiambu Highlands</h3>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">Low-cost methods using neem extract and wood ash to stop armyworms.</p>
+            <div style="font-size:11px; color:var(--text-muted); margin-bottom:12px;">Instructor: <strong>KARI Extension Officer Susan Njeri</strong></div>
+            <button class="icon-btn" onclick="openLessonModal('l4')" style="width:100%; padding:10px; background:var(--brand-blue); color:#FFF; border:none;">
+              ▶ Watch Lesson &amp; Key Tips
+            </button>
+          </div>
+        
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:700; color:var(--brand-blue); margin-bottom:4px;">
+              <span>FINANCE</span>
+              <span style="color:var(--text-muted);">5 min</span>
+            </div>
+            <h3 style="font-size:15px; font-weight:800; margin-bottom:6px; line-height:1.3;">Farm Bookkeeping: Calculating Daily Milk Income vs Feed Cost</h3>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">How to calculate your Feed Conversion Ratio to know true net profits.</p>
+            <div style="font-size:11px; color:var(--text-muted); margin-bottom:12px;">Instructor: <strong>Francis Kariuki (Agri-Finance Consultant)</strong></div>
+            <button class="icon-btn" onclick="openLessonModal('l5')" style="width:100%; padding:10px; background:var(--brand-blue); color:#FFF; border:none;">
+              ▶ Watch Lesson &amp; Key Tips
+            </button>
+          </div>
+        
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:700; color:var(--brand-blue); margin-bottom:4px;">
+              <span>FINANCE</span>
+              <span style="color:var(--text-muted);">6 min</span>
+            </div>
+            <h3 style="font-size:15px; font-weight:800; margin-bottom:6px; line-height:1.3;">Accessing Dairy Equipment Loans &amp; Cooperative Advance Credit</h3>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">Guide on qualifying for asset financing for chaff cutters through milk statements.</p>
+            <div style="font-size:11px; color:var(--text-muted); margin-bottom:12px;">Instructor: <strong>Cooperative Credit Officer Maina</strong></div>
+            <button class="icon-btn" onclick="openLessonModal('l6')" style="width:100%; padding:10px; background:var(--brand-blue); color:#FFF; border:none;">
+              ▶ Watch Lesson &amp; Key Tips
+            </button>
+          </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 4: ASK EXPERT -->
+    <div id="screen-expert" class="hidden">
+      <!-- Sub-tabs: Form vs Questions Tab -->
+      <div class="sub-tabs">
+        <button class="sub-tab-btn active" id="btn-sub-ask" onclick="switchExpertSubTab('ask')" data-en="Ask Form" data-sw="Uliza Swali">Ask Form</button>
+        <button class="sub-tab-btn" id="btn-sub-questions" onclick="switchExpertSubTab('questions')" data-en="Questions Tab" data-sw="Tab ya Maswali">Questions Tab</button>
+      </div>
+
+      <!-- ASK FORM -->
+      <div id="view-ask-form" class="card">
+        <h3 style="font-size:16px; font-weight:800; margin-bottom:4px;" data-en="Ask Kiambu Agronomists &amp; Vets" data-sw="Uliza Mtaalamu wa Kilimo">Ask Kiambu Agronomists &amp; Vets</h3>
+        <p style="font-size:12px; color:var(--text-muted); margin-bottom:14px;" data-en="Submit your question below and get direct advice via SMS or call." data-sw="Andika swali lako hapa utapokea jibu la daktari kwa simu au SMS.">Submit your question below and get direct advice via SMS or call.</p>
+
+        <form id="expert-form" onsubmit="handleExpertFormSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" data-en="Your Full Name *" data-sw="Jina Lako Kamili *">Your Full Name *</label>
+            <input type="text" class="form-input" id="ask-name" required="" placeholder="e.g. Samuel Kimani">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-en="Kenyan Phone Number *" data-sw="Nambari ya Simu ya Kenya *">Kenyan Phone Number *</label>
+            <input type="tel" class="form-input" id="ask-phone" required="" placeholder="07XX XXX XXX">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-en="Topic *" data-sw="Mada ya Swali *">Topic *</label>
+            <select class="form-select" id="ask-topic">
+              <option value="Livestock">Livestock</option>
+              <option value="Crop production">Crop production</option>
+              <option value="Finance and loans">Finance and loans</option>
+              <option value="Inputs and markets">Inputs and markets</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-en="Your Question *" data-sw="Swali Lako *">Your Question *</label>
+            <textarea class="form-textarea" id="ask-question" rows="4" required="" placeholder="Describe what you notice on your dairy cow or crops in Githunguri..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit" style="background:var(--brand-blue);" data-en="Submit Question to Expert" data-sw="Tuma Swali kwa Mtaalamu">Submit Question to Expert</button>
+        </form>
+      </div>
+
+      <!-- THANK YOU MESSAGE -->
+      <div id="view-ask-thankyou" class="card hidden" style="text-align:center;">
+        <div style="width:60px; height:60px; border-radius:50%; background:rgba(11,110,11,0.15); color:var(--brand-green); display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:30px;">✓</div>
+        <h3 style="font-size:18px; font-weight:800; margin-bottom:8px;" data-en="Thank You!" data-sw="Asante Sana!">Thank You!</h3>
+        <div style="background:rgba(11,110,11,0.1); border:1px solid rgba(11,110,11,0.3); border-radius:14px; padding:14px; text-align:left; font-size:13px; font-weight:700; color:var(--brand-green);" id="thankyou-msg-box">
+          "Asante! Your question has been submitted to Lusweti Agrihub agricultural experts. We will call or SMS you shortly on your phone."
+        </div>
+        <div style="margin-top:14px; display:flex; gap:8px;">
+          <button class="icon-btn" onclick="resetAskForm()" style="flex:1; padding:10px;" data-en="Ask Another" data-sw="Uliza Jingine">Ask Another</button>
+          <button class="icon-btn" onclick="switchExpertSubTab('questions')" style="flex:1; padding:10px; background:var(--brand-blue); color:#FFF; border:none;" data-en="View Questions Tab" data-sw="Tazama Maswali">View Questions Tab</button>
+        </div>
+      </div>
+
+      <!-- QUESTIONS LIST VIEW -->
+      <div id="view-questions-list" class="hidden">
+        <div class="card" style="background:rgba(10,58,150,0.06); font-size:12px; font-weight:600;">
+          <strong style="color:var(--brand-blue);">Questions Tab:</strong> Questions asked by farmers stored with answers from Kiambu extension officers.
+        </div>
+        <div id="questions-list"></div>
+      </div>
+    </div>
+
+    <!-- SCREEN 5: PROVIDERS -->
+    <div id="screen-providers" class="hidden">
+      <div class="card">
+        <h2 style="font-size:16px; font-weight:800;" data-en="Githunguri Verified Service Providers" data-sw="Watoa Huduma wa Githunguri">Githunguri Verified Service Providers</h2>
+        <p style="font-size:11px; color:var(--text-muted); margin-top:2px;" data-en="Vets, AI inseminators, agrovets &amp; milk buyers serving Githunguri, Kiambu County." data-sw="Madaktari wa mifugo (Vets), wataalamu wa AI, maduka ya agrovet na wanunuzi Kiambu.">Vets, AI inseminators, agrovets &amp; milk buyers serving Githunguri, Kiambu County.</p>
+      </div>
+
+      <!-- Provider Filter Chips: All, Vet, AI provider, Agrovet, Buyer -->
+      <div class="chips-bar" id="provider-category-chips"></div>
+
+      <!-- Providers List -->
+      <div id="providers-list"></div>
+    </div>
+
+  </main>
+
+  <!-- STICKY BOTTOM BAR (Mandatory: "X items - KES total" with "Place order" button) -->
+  <div class="sticky-order-bar hidden" id="sticky-order-bar">
+    <div class="sticky-order-inner">
+      <div style="cursor:pointer;" onclick="openCartModal()">
+        <div class="sticky-text" id="sticky-items-text">0 items in cart</div>
+        <div class="sticky-total" id="sticky-total-kes">KES 0</div>
+      </div>
+      <button class="btn-place-order" onclick="openCheckoutModal()">
+        <span data-en="Place order" data-sw="Weka Oda Sasa">Place order</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- FIXED BOTTOM MENU (Learn, Shop, Ask expert, Providers + Home) -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <button class="nav-tab-btn active" id="tab-btn-home" onclick="navigateTo('home')">
+        <div class="tab-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </div>
+        <span data-en="Home" data-sw="Nyumbani">Home</span>
+      </button>
+
+      <button class="nav-tab-btn shop-tab" id="tab-btn-shop" onclick="navigateTo('shop')">
+        <div class="tab-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        </div>
+        <span data-en="Shop" data-sw="Nunua">Shop</span>
+      </button>
+
+      <button class="nav-tab-btn" id="tab-btn-learn" onclick="navigateTo('learn')">
+        <div class="tab-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        </div>
+        <span data-en="Learn" data-sw="Mafunzo">Learn</span>
+      </button>
+
+      <button class="nav-tab-btn" id="tab-btn-expert" onclick="navigateTo('expert')">
+        <div class="tab-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </div>
+        <span data-en="Ask expert" data-sw="Uliza">Ask expert</span>
+      </button>
+
+      <button class="nav-tab-btn" id="tab-btn-providers" onclick="navigateTo('providers')">
+        <div class="tab-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        </div>
+        <span data-en="Providers" data-sw="Huduma">Providers</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CART MODAL -->
+  <div class="modal-backdrop hidden" id="modal-cart">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" data-en="Your Farm Cart" data-sw="Kikapu cha Pembejeo">Your Farm Cart</h3>
+        <button class="modal-close-btn" onclick="closeCartModal()">✕</button>
+      </div>
+      <div class="modal-body" id="cart-modal-items"></div>
+      <div style="padding:14px; border-top:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <div style="font-size:11px; color:var(--text-muted);" data-en="Total:" data-sw="Jumla:">Total:</div>
+          <div style="font-size:18px; font-weight:800; color:var(--brand-green);" id="cart-modal-total">KES 0</div>
+        </div>
+        <button class="btn-place-order" onclick="closeCartModal(); openCheckoutModal();" data-en="Proceed to Order" data-sw="Endelea na Oda">Proceed to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL: Name, Phone, Delivery Location -->
+  <div class="modal-backdrop hidden" id="modal-checkout">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" data-en="Place Your Order" data-sw="Weka Maelezo ya Oda">Place Your Order</h3>
+        <button class="modal-close-btn" onclick="closeCheckoutModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="handleOrderSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" data-en="Full Name *" data-sw="Jina Lako Kamili *">Full Name *</label>
+            <input type="text" class="form-input" id="order-name" required="" placeholder="e.g. Peter Kamau">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-en="Kenyan Phone Number (M-Pesa) *" data-sw="Nambari ya Simu (M-Pesa) *">Kenyan Phone Number (M-Pesa) *</label>
+            <input type="tel" class="form-input" id="order-phone" required="" placeholder="07XX XXX XXX or 01XX XXX XXX">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-en="Delivery Location in Githunguri *" data-sw="Mahali pa Kufikisha Githunguri *">Delivery Location in Githunguri *</label>
+            <input type="text" class="form-input" id="order-location" required="" placeholder="e.g. Githunguri Town, Kagwe, Ikinu, Komothai...">
+            <!-- Location chips -->
+            <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;">
+              <button type="button" class="chip-btn" style="padding:4px 10px; font-size:11px;" onclick="setOrderLocation('Githunguri Town')">Githunguri Town</button>
+              <button type="button" class="chip-btn" style="padding:4px 10px; font-size:11px;" onclick="setOrderLocation('Kagwe Centre')">Kagwe</button>
+              <button type="button" class="chip-btn" style="padding:4px 10px; font-size:11px;" onclick="setOrderLocation('Ikinu Market')">Ikinu</button>
+              <button type="button" class="chip-btn" style="padding:4px 10px; font-size:11px;" onclick="setOrderLocation('Komothai')">Komothai</button>
+              <button type="button" class="chip-btn" style="padding:4px 10px; font-size:11px;" onclick="setOrderLocation('Gatamaiyu')">Gatamaiyu</button>
+              <button type="button" class="chip-btn" style="padding:4px 10px; font-size:11px;" onclick="setOrderLocation('Ngewa')">Ngewa</button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit" data-en="Confirm &amp; Place Order" data-sw="Thibitisha Oda Sasa">Confirm &amp; Place Order</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER SUCCESS & M-PESA CONFIRMATION MODAL -->
+  <div class="modal-backdrop hidden" id="modal-order-success">
+    <div class="modal-box" style="text-align:center;">
+      <div class="modal-header">
+        <h3 class="modal-title" style="color:var(--brand-green);">Order Confirmed</h3>
+        <button class="modal-close-btn" onclick="closeOrderSuccessModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="width:64px; height:64px; border-radius:50%; background:rgba(11,110,11,0.15); color:var(--brand-green); font-size:32px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px;">✓</div>
+
+        <!-- EXACT REQUIRED MESSAGE FROM PROMPT -->
+        <div style="background:rgba(11,110,11,0.1); border:1px solid rgba(11,110,11,0.3); border-radius:14px; padding:16px; text-align:left; font-size:14px; font-weight:800; color:var(--brand-green); margin-bottom:14px;">
+          "Order placed. You will get an M-Pesa prompt to pay, then your supplier will arrange delivery."
+        </div>
+
+        <!-- OFFICIAL M-PESA PAYMENT DETAILS -->
+        <div style="background:#0F172A; color:#FFFFFF; border-radius:16px; padding:16px; text-align:left; margin-bottom:14px; border:2px solid #0B6E0B;">
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #334155; padding-bottom:8px; margin-bottom:10px;">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="background:#0B6E0B; color:#FFFFFF; font-size:10px; font-weight:800; padding:2px 8px; border-radius:6px;">LIPA NA M-PESA</span>
+              <span style="font-size:11px; font-weight:700; color:#94A3B8;">PAYBILL</span>
+            </div>
+            <span style="font-size:11px; color:#10B981; font-weight:800;">Official Channel</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
+            <div style="background:#1E293B; padding:10px; border-radius:10px;">
+              <div style="font-size:10px; color:#94A3B8; font-weight:600;">Business No. (Paybill)</div>
+              <div style="font-size:17px; font-weight:800; color:#FBBF24; font-family:monospace; margin-top:2px;">522522</div>
+              <button type="button" onclick="copyToClipboard('522522', this)" style="background:none; border:none; color:#38BDF8; font-size:11px; font-weight:700; cursor:pointer; padding:2px 0; margin-top:2px;">Copy Paybill</button>
+            </div>
+
+            <div style="background:#1E293B; padding:10px; border-radius:10px;">
+              <div style="font-size:10px; color:#94A3B8; font-weight:600;">Account Number</div>
+              <div style="font-size:16px; font-weight:800; color:#FFFFFF; font-family:monospace; margin-top:2px;">1276891598</div>
+              <button type="button" onclick="copyToClipboard('1276891598', this)" style="background:none; border:none; color:#38BDF8; font-size:11px; font-weight:700; cursor:pointer; padding:2px 0; margin-top:2px;">Copy Account</button>
+            </div>
+          </div>
+
+          <div style="font-size:11px; color:#CBD5E1;">
+            Account Name: <strong>LUSWETI AGRIHUB AFRICA</strong>
+          </div>
+        </div>
+
+        <div style="font-size:12px; text-align:left; background:var(--bg-canvas); padding:12px; border-radius:12px; margin-bottom:14px;" id="order-success-details"></div>
+
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <button class="btn-submit" style="background:#0B6E0B;" onclick="showMpesaPrompt()">Test M-Pesa STK Prompt (Demo)</button>
+          <button class="icon-btn" onclick="closeOrderSuccessModal(); navigateTo('shop'); switchShopSubTab('orders');" style="padding:12px;">View in Orders Tab</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIMULATED M-PESA POPUP DIALOG -->
+  <div class="modal-backdrop hidden" id="modal-mpesa-prompt">
+    <div class="mpesa-stk-box">
+      <div class="mpesa-header">
+        <span>SAFARICOM M-PESA</span>
+        <span>SIM 1</span>
+      </div>
+      <p style="font-size:12px; line-height:1.4; margin-bottom:12px;" id="mpesa-prompt-text">
+        Do you want to pay KES ... to LUSWETI AGRIHUB AFRICA (Paybill 522522, Account 1276891598)?
+      </p>
+      <div style="margin-bottom:12px;">
+        <label style="display:block; font-size:11px; font-weight:700; margin-bottom:4px;">Enter 4-digit M-Pesa PIN:</label>
+        <input type="password" maxlength="4" placeholder="••••" style="width:100%; text-align:center; font-size:18px; padding:8px; border:1px solid #CBD5E1; border-radius:8px;" id="mpesa-pin-input">
+      </div>
+      <div style="display:flex; gap:8px;">
+        <button type="button" class="icon-btn" style="flex:1;" onclick="closeMpesaPrompt()">Cancel</button>
+        <button type="button" class="icon-btn" style="flex:1; background:#0B6E0B; color:#FFF; border:none;" onclick="completeMpesaPayment()">Send PIN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTALL APP GUIDE MODAL FOR FARMERS -->
+  <div class="modal-backdrop hidden" id="modal-install-guide">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" style="display:flex; align-items:center; gap:8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          <span data-en="Install on Your Phone" data-sw="Sakinisha Kwenye Simu">Install on Your Phone</span>
+        </h3>
+        <button class="modal-close-btn" onclick="closeInstallGuideModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="text-align:center; margin-bottom:14px;">
+          <div class="brand-emblem" style="width:64px; height:64px; margin:0 auto 8px; border-width:3px;">
+            <img src="/assets/aistudio/lusweti_logo_full_d6920cc9.png" alt="Lusweti Logo">
+          </div>
+          <h4 style="font-size:16px; font-weight:800; color:var(--brand-blue);">Lusweti Agrihub Africa</h4>
+          <p style="font-size:11px; color:var(--text-muted);">From Seed to Market, From Cow to Cup</p>
+        </div>
+
+        <div style="background:rgba(10,58,150,0.06); border:1px solid rgba(10,58,150,0.2); border-radius:14px; padding:14px; margin-bottom:14px; font-size:12px; line-height:1.5;">
+          <strong style="color:var(--brand-blue); display:block; margin-bottom:6px;">How to install on Android phone:</strong>
+          <ol style="padding-left:18px; margin:0;">
+            <li style="margin-bottom:6px;">In Google Chrome, tap the <strong>3 dots (⫶)</strong> menu icon at the top-right corner.</li>
+            <li style="margin-bottom:6px;">Select <strong>"Install app"</strong> or <strong>"Add to Home screen"</strong> (au "Weka kwenye Skrini").</li>
+            <li>Tap <strong>Install</strong>. The round Lusweti emblem will now be on your phone's home screen!</li>
+          </ol>
+        </div>
+
+        <button class="btn-submit" onclick="triggerPwaInstallPromptDirect()" style="background:var(--brand-green); margin-bottom:10px;">
+          Install Now (Auto Prompt)
+        </button>
+        <button class="icon-btn" onclick="closeInstallGuideModal()" style="width:100%; padding:10px;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON DETAIL MODAL -->
+  <div class="modal-backdrop hidden" id="modal-lesson">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="lesson-modal-cat">Lesson</h3>
+        <button class="modal-close-btn" onclick="closeLessonModal()">✕</button>
+      </div>
+      <div class="modal-body" id="lesson-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- PROVIDER REQUEST CONTACT MODAL -->
+  <div class="modal-backdrop hidden" id="modal-request-contact">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" data-en="Request Provider Contact" data-sw="Omba Mawasiliano ya Mtoa Huduma">Request Provider Contact</h3>
+        <button class="modal-close-btn" onclick="closeRequestContactModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="background:rgba(10,58,150,0.08); padding:10px 14px; border-radius:12px; font-size:12px; color:var(--brand-blue); font-weight:700; margin-bottom:14px;" id="request-contact-provider-name"></div>
+
+        <form id="contact-request-form" onsubmit="handleContactRequestSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" data-en="Your Name *" data-sw="Jina Lako *">Your Name *</label>
+            <input type="text" class="form-input" id="req-name" required="" placeholder="e.g. John Karanja">
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-en="Phone Number *" data-sw="Nambari ya Simu *">Phone Number *</label>
+            <input type="tel" class="form-input" id="req-phone" required="" placeholder="07XX XXX XXX">
+          </div>
+          <button type="submit" class="btn-submit" style="background:var(--brand-blue);" data-en="Send Contact Request" data-sw="Tuma Ombi la Mawasiliano">Send Contact Request</button>
+        </form>
+
+        <div id="contact-request-success" class="hidden" style="text-align:center; padding:16px 0;">
+          <div style="font-size:28px; color:var(--brand-green); margin-bottom:8px;">✓</div>
+          <h4 style="font-size:15px; font-weight:800; margin-bottom:4px;" data-en="Request Sent Successfully!" data-sw="Ombi Limetumwa Kikamilifu!">Request Sent Successfully!</h4>
+          <p style="font-size:12px; color:var(--text-muted); margin-bottom:14px;" data-en="The service provider has been notified and will call you back shortly." data-sw="Mtoa huduma amearifiwa na atakupigia simu punde.">The service provider has been notified and will call you back shortly.</p>
+          <button class="icon-btn" onclick="closeRequestContactModal()" style="width:100%; padding:10px;">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ----------------------------------------------------
+       LUSWETI AGRIHUB AFRICA - COMPLETE SAMPLE DATA & SCRIPT
+       ---------------------------------------------------- -->
+  <script>
+    // 1. STATE & SAMPLE DATA
+    let currentLanguage = localStorage.getItem('lusweti_lang') || 'en';
+    let isDarkMode = localStorage.getItem('lusweti_dark_mode') === 'true';
+    let currentTab = 'home';
+    let selectedProductCategory = 'All';
+    let selectedLessonCategory = 'All';
+    let selectedProviderCategory = 'All';
+    let lastPlacedOrder = null;
+    let selectedProviderForContact = null;
+
+    // Sample Products (Order Inputs)
+    const PRODUCTS = [
+      {
+        id: 'p1',
+        name: 'High Yield Dairy Meal (24% CP)',
+        swahiliName: 'Chakula cha Ng\'ombe wa Maziwa (50kg)',
+        category: 'Livestock Feeds',
+        priceKes: 2850,
+        unit: '50kg bag',
+        image: 'https://images.unsplash.com/photo-1546445317-29f4545e9d53?auto=format&fit=crop&w=500&q=80',
+        descEn: 'Formulated for lactating cows producing over 15L daily. Boosts butterfat.',
+        descSw: 'Chakula bora cha kuongeza maziwa mengi na mafuta mazito ya maziwa.',
+        supplier: 'Githunguri Feed Mills'
+      },
+      {
+        id: 'p2',
+        name: 'Boma Rhodes Certified Grass Seed',
+        swahiliName: 'Mbegu ya Nyasi ya Boma Rhodes (Kilo 1)',
+        category: 'Seeds & Planting',
+        priceKes: 950,
+        unit: '1kg pack',
+        image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=500&q=80',
+        descEn: 'High-tiller forage grass, drought-hardy, rich protein fodder for silage & hay.',
+        descSw: 'Nyasi yenye majani mengi na protini ya juu kwa kulisha ng\'ombe na hay.',
+        supplier: 'Kenya Seed Kiambu Depot'
+      },
+      {
+        id: 'p3',
+        name: 'Mavuno Planting NPK Fertilizer (Micro-nutrients)',
+        swahiliName: 'Mbolea ya Kupandia Mavuno NPK (Kilo 50)',
+        category: 'Fertilizers',
+        priceKes: 3400,
+        unit: '50kg bag',
+        image: 'https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=500&q=80',
+        descEn: 'Fortified with Zinc and Boron for Kiambu red acidic soils. Great for maize.',
+        descSw: 'Mbolea yenye madini ya Zinc na Boron kusaidia mazao kukua haraka.',
+        supplier: 'Kiambu Farmers Agro Supplies'
+      },
+      {
+        id: 'p4',
+        name: 'Dutch Holstein-Friesian AI Semen Straw',
+        swahiliName: 'Mbegu ya Chupa ya Friesian (Dose 1)',
+        category: 'Veterinary & Health',
+        priceKes: 1800,
+        unit: '1 Straw dose',
+        image: 'https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&fit=crop&w=500&q=80',
+        descEn: 'Top-tier Dutch dairy genetics with verified 30L+ daughter production.',
+        descSw: 'Genetiki safi ya Uholanzi ya ndama anayezaa maziwa zaidi ya lita 30 kwa siku.',
+        supplier: 'Central AI Semen Station Kagwe'
+      },
+      {
+        id: 'p5',
+        name: 'Dairy Cow Post-Milking Iodine Teat Dip',
+        swahiliName: 'Dawa ya Kuchovya Chuchu Kuzuia Mastitis (Lita 5)',
+        category: 'Veterinary & Health',
+        priceKes: 1650,
+        unit: '5 Litres',
+        image: 'https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&fit=crop&w=500&q=80',
+        descEn: 'Rapid-action antiseptic dip with cosmetic glycerin. Prevents mastitis.',
+        descSw: 'Dawa ya kuzuia ugonjwa hatari wa kiwele na kulinda chuchu baada ya kukamua.',
+        supplier: 'Fresha Agrovet Githunguri'
+      },
+      {
+        id: 'p6',
+        name: 'Silage Fermentation Inoculant',
+        swahiliName: 'Dawa ya Kuchachusha Silage ya Mahindi (Gramu 100)',
+        category: 'Livestock Feeds',
+        priceKes: 750,
+        unit: '100g sachet',
+        image: 'https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=500&q=80',
+        descEn: 'Live lactic acid bacteria for faster pit fermentation and zero mold.',
+        descSw: 'Bakteria hai wanaofanya silage iive haraka bila kuoza wala kuwa na ukungu.',
+        supplier: 'Githunguri Dairy Co-op'
+      },
+      {
+        id: 'p7',
+        name: 'Certified Hybrid Maize SC Duma 43',
+        swahiliName: 'Mbegu ya Mahindi ya SC Duma 43 (Kilo 2)',
+        category: 'Seeds & Planting',
+        priceKes: 680,
+        unit: '2kg pack',
+        image: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=500&q=80',
+        descEn: 'Early maturing high-yield maize suited for high altitude Kiambu conditions.',
+        descSw: 'Inakomaa mapema na kutoa mahindi mazito yanayostahimili baridi ya milimani.',
+        supplier: 'Komothai Seed Agrovet'
+      },
+      {
+        id: 'p8',
+        name: 'Mineral Salt Lick Brick with Selenium',
+        swahiliName: 'Chumvi ya Kulamba ya Madini (Kilo 5)',
+        category: 'Veterinary & Health',
+        priceKes: 480,
+        unit: '5kg block',
+        image: 'https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=500&q=80',
+        descEn: 'Calcium, Phosphorus & Selenium for cow fertility and heat detection.',
+        descSw: 'Madini yote muhimu ya uzazi kusaidia ng\'ombe kushika mimba haraka.',
+        supplier: 'Gatamaiyu Agrovet'
+      },
+      {
+        id: 'p9',
+        name: 'Heavy Duty 2-Knife Chaff Cutter Blades',
+        swahiliName: 'Visu vya Chaff Cutter (Seti ya 2)',
+        category: 'Farm Tools',
+        priceKes: 1400,
+        unit: 'Set of 2',
+        image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=80',
+        descEn: 'High carbon hardened steel blades for chopping Napier grass and maize fodder.',
+        descSw: 'Visu vikali visivyolegea kwa kukata napier na mahindi kwa mashine.',
+        supplier: 'Kiambu Agro Tools'
+      }
+    ];
+
+    // Sample Lessons (Learn)
+    const LESSONS = [
+      {
+        id: 'l1',
+        category: 'Livestock',
+        englishTitle: 'How to Formulate Silage & Feed for 25+ Litres Milk Daily',
+        swahiliTitle: 'Jinsi ya Kutengeneza Silage na Chakula cha Maziwa Lita 25+',
+        duration: '6 min',
+        instructor: 'Dr. John Mwangi (Githunguri Vet Specialist)',
+        summaryEn: 'Step-by-step masterclass on harvesting maize at dough stage and feeding 15kg silage + 6kg dairy meal per cow.',
+        summarySw: 'Mwongozo kamili wa kuvuna mahindi wakati yana unga na kulisha kilo 15 za silage kwa ng\'ombe.',
+        tipsEn: [
+          'Chop maize fodder to 1-2 cm pieces for maximum digestion',
+          'Compact tightly in a bunker or tube silo to exclude all oxygen',
+          'Feed 1kg dairy meal for every 2 litres of milk above maintenance'
+        ],
+        tipsSw: [
+          'Kata mahindi yawe vipande vidogo vya sentimita 1-2',
+          'Kanyaga shimo vizuri hewa yote itoke nje kabisa',
+          'Lisha kilo 1 ya dairy meal kwa kila lita 2 za maziwa ya ziada'
+        ]
+      },
+      {
+        id: 'l2',
+        category: 'Livestock',
+        englishTitle: 'Early Mastitis Detection & California Mastitis Test (CMT)',
+        swahiliTitle: 'Kugundua Ugonjwa wa Mastitis Mapema kwa Kutumia CMT',
+        duration: '5 min',
+        instructor: 'Vet Officer Grace Wambui (Kiambu)',
+        summaryEn: 'Learn how to detect subclinical mastitis before clots appear in milk.',
+        summarySw: 'Jifunze kugundua ugonjwa wa kiwele mapema kabla maziwa hayajaharibika.',
+        tipsEn: [
+          'Test foremilk from every teat once weekly using CMT reagent',
+          'Dip teats in antiseptic iodine solution immediately after milking',
+          'Keep cows standing for 30 minutes after milking'
+        ],
+        tipsSw: [
+          'Pima maziwa ya kwanza kila wiki kwa chombo cha CMT',
+          'Chovya chuchu kwenye dawa ya iodine baada ya kukamua',
+          'Wape chakula ng\'ombe wasilale chini ndani ya dakika 30'
+        ]
+      },
+      {
+        id: 'l3',
+        category: 'Crops',
+        englishTitle: 'Proper Spacing & Basal Fertilization for Kiambu Hybrid Maize',
+        swahiliTitle: 'Nafasi Sahihi na Mbolea ya Kupandia Mahindi Kiambu',
+        duration: '4 min',
+        instructor: 'Agronomist Peter Karanja (Githunguri)',
+        summaryEn: 'Achieve 35+ bags per acre with 75cm x 25cm spacing and balanced NPK fertilizer placement.',
+        summarySw: 'Pata magunia 35+ kwa ekari kwa kutumia nafasi ya sentimita 75 kwa 25 na mbolea sahihi.',
+        tipsEn: [
+          'Space 75cm between rows and 25cm between individual plants',
+          'Apply 1 soda bottle-cap (50g) of NPK mixed with soil below seed',
+          'Top-dress with CAN fertilizer when maize reaches knee-height'
+        ],
+        tipsSw: [
+          'Weka nafasi ya sentimita 75 kati ya mistari na 25 kati ya mche na mche',
+          'Weka kifuniko cha soda cha mbolea na ufunike na mchanga kabla ya mbegu',
+          'Weka mbolea ya kukuzia (CAN) wakati mahindi yanapofika magotini'
+        ]
+      },
+      {
+        id: 'l4',
+        category: 'Crops',
+        englishTitle: 'Managing Fall Armyworm & Coffee Pests in Kiambu Highlands',
+        swahiliTitle: 'Kudhibiti Viwavi Jeshi na Wadudu wa Kahawa Kiambu',
+        duration: '6 min',
+        instructor: 'KARI Extension Officer Susan Njeri',
+        summaryEn: 'Low-cost methods using neem extract and wood ash to stop armyworms.',
+        summarySw: 'Mbinu za bei nafuu za kutumia mwarobaini na majivu safi kuua viwavi shambani.',
+        tipsEn: [
+          'Scout your field twice a week in early morning',
+          'Pour clean wood ash into the maize whorl for young crops'
+        ],
+        tipsSw: [
+          'Kagua shamba mara mbili kwa wiki asubuhi na mapema',
+          'Weka majivu safi ndani ya jicho la mahindi madogo'
+        ]
+      },
+      {
+        id: 'l5',
+        category: 'Finance',
+        englishTitle: 'Farm Bookkeeping: Calculating Daily Milk Income vs Feed Cost',
+        swahiliTitle: 'Uwekaji Mahesabu Shambani: Mapato ya Maziwa dhidi ya Gharama',
+        duration: '5 min',
+        instructor: 'Francis Kariuki (Agri-Finance Consultant)',
+        summaryEn: 'How to calculate your Feed Conversion Ratio to know true net profits.',
+        summarySw: 'Jinsi ya kujua faida halisi kwa kila lita ya maziwa baada ya kutoa gharama ya chakula.',
+        tipsEn: [
+          'Record morning and evening milk litres daily in a book',
+          'Aim for feed costs to remain below 50% of gross milk payout'
+        ],
+        tipsSw: [
+          'Andika lita za asubuhi na jioni kila siku katika kijitabu',
+          'Hakikisha gharama ya chakula haizidi 50% ya mapato ya maziwa'
+        ]
+      },
+      {
+        id: 'l6',
+        category: 'Finance',
+        englishTitle: 'Accessing Dairy Equipment Loans & Cooperative Advance Credit',
+        swahiliTitle: 'Kupata Mikopo ya Mashine za Kilimo na Chaff Cutter',
+        duration: '6 min',
+        instructor: 'Cooperative Credit Officer Maina',
+        summaryEn: 'Guide on qualifying for asset financing for chaff cutters through milk statements.',
+        summarySw: 'Mwongozo wa jinsi ya kutumia stakabadhi za maziwa kupata mashine ya chaff cutter.',
+        tipsEn: [
+          'Use 3 months consecutive milk delivery receipts as collateral',
+          'Repayments comfortably deducted from monthly milk payout'
+        ],
+        tipsSw: [
+          'Tumia stakabadhi za miezi 3 za maziwa kama dhamana ya mkopo',
+          'Malipo yanakatwa kidogo kidogo kutoka kwenye malipo ya maziwa'
+        ]
+      }
+    ];
+
+    // Sample Providers in Githunguri Kiambu
+    const PROVIDERS = [
+      {
+        id: 'pr1',
+        name: 'Dr. John Mwangi (Veterinary Surgeon)',
+        type: 'Vet',
+        location: 'Githunguri Town (Opp. Hospital)',
+        phone: '0722 418 903',
+        services: ['Cow delivery & dystocia', 'Mastitis treatment', 'FMD Vaccinations'],
+        rating: '4.9 ★'
+      },
+      {
+        id: 'pr2',
+        name: 'Githunguri AI & Genetic Breeders',
+        type: 'AI provider',
+        location: 'Kagwe Centre, Near Stage',
+        phone: '0721 954 112',
+        services: ['Friesian & Jersey semen', 'Sexed heifer semen', 'Motorbike service to farm'],
+        rating: '4.8 ★'
+      },
+      {
+        id: 'pr3',
+        name: 'Fresha Agrovet & Farm Supplies',
+        type: 'Agrovet',
+        location: 'GDC Plaza, Githunguri Main Street',
+        phone: '0710 321 889',
+        services: ['Original dairy feeds', 'Certified seeds', 'Teat dips & dewormers'],
+        rating: '4.9 ★'
+      },
+      {
+        id: 'pr4',
+        name: 'Kiambu Highland Dairy Chilling & Milk Hub',
+        type: 'Buyer',
+        location: 'Ikinu Junction, Githunguri Rd',
+        phone: '0733 789 441',
+        services: ['Daily morning & evening milk collection', 'KES 52/Litre payout', 'Advance credit'],
+        rating: '4.7 ★'
+      },
+      {
+        id: 'pr5',
+        name: 'Komothai Farmers Agrovet & Veterinary',
+        type: 'Agrovet',
+        location: 'Komothai Shopping Centre',
+        phone: '0724 670 512',
+        services: ['Calf rearing feeds', 'Fodder grass seeds', 'Coffee sprays & advice'],
+        rating: '4.8 ★'
+      },
+      {
+        id: 'pr6',
+        name: 'Dr. Grace Wambui (Livestock Vet)',
+        type: 'Vet',
+        location: 'Ikinu Market & Kambui',
+        phone: '0715 882 340',
+        services: ['Vaccinations', 'Nutrition audits', 'Hoof trimming'],
+        rating: '4.9 ★'
+      },
+      {
+        id: 'pr7',
+        name: 'Highlands Semen & AI Technicians',
+        type: 'AI provider',
+        location: 'Gatamaiyu Centre',
+        phone: '0702 441 990',
+        services: ['Imported US semen', 'High butterfat genetics', 'Rapid farm visit'],
+        rating: '4.8 ★'
+      },
+      {
+        id: 'pr8',
+        name: 'Githunguri Fodder & Quality Hay Buyers',
+        type: 'Buyer',
+        location: 'Ngewa Centre, Githunguri',
+        phone: '0728 119 630',
+        services: ['Buying standing maize for silage', 'Buying Boma Rhodes hay', 'Free truck pickup'],
+        rating: '4.6 ★'
+      }
+    ];
+
+    // Local Storage Loaded Orders & Questions
+    let cart = JSON.parse(localStorage.getItem('lusweti_cart') || '{}');
+    let orders = JSON.parse(localStorage.getItem('lusweti_orders') || 'null');
+    if (!orders) {
+      orders = [
+        {
+          id: 'ORD-5421',
+          date: 'Today, 09:15 AM',
+          name: 'Peter Kamau',
+          phone: '0722 341 890',
+          location: 'Githunguri Town, Near Total Station',
+          totalKes: 7350,
+          status: 'Pending M-Pesa',
+          items: '2x High Yield Dairy Meal, 1x Teat Dip'
+        },
+        {
+          id: 'ORD-5419',
+          date: 'Yesterday, 04:30 PM',
+          name: 'Mary Wanjiku',
+          phone: '0714 889 012',
+          location: 'Ikinu Market',
+          totalKes: 3810,
+          status: 'Paid & Dispatched',
+          items: '3x Boma Rhodes Seed, 2x Salt Lick Brick'
+        }
+      ];
+    }
+
+    let questions = JSON.parse(localStorage.getItem('lusweti_questions') || 'null');
+    if (!questions) {
+      questions = [
+        {
+          id: 'q1',
+          name: 'David Njuguna',
+          phone: '0723 556 771',
+          topic: 'Livestock',
+          question: 'My fresh cow calved 3 days ago and her udder is hard and hot on the left quarter. What should I give her immediately?',
+          status: 'Answered by Agronomist',
+          answeredBy: 'Dr. John Mwangi (Vet Specialist)',
+          answer: 'This is acute post-calving mastitis or udder edema. Strip out that quarter completely 3-4 times today. Apply cold water compresses then gentle massage with udder balm. Have a vet administer an intramammary antibiotic tube. Do not mix with bulk milk.'
+        },
+        {
+          id: 'q2',
+          name: 'Esther Muthoni',
+          phone: '0701 445 120',
+          topic: 'Crop production',
+          question: 'When is the best time to apply top dressing CAN on maize in Githunguri red volcanic soil?',
+          status: 'Answered by Agronomist',
+          answeredBy: 'Peter Karanja (Senior Agronomist)',
+          answer: 'Apply when maize reaches knee height (approx 4 to 6 weeks after germination), preferably when the soil has good moisture after light rain. Use 1 full teaspoon placed 10cm away from plant stem and cover with soil.'
+        }
+      ];
+    }
+
+    // 2. INITIALIZATION
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      initLanguage();
+      renderProducts();
+      renderOrders();
+      renderLessons();
+      renderQuestions();
+      renderProviders();
+      updateCartUI();
+    });
+
+    // 3. THEME & LANGUAGE
+    function initTheme() {
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+        document.getElementById('theme-icon').textContent = '☀️';
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.getElementById('theme-icon').textContent = '🌙';
+      }
+    }
+    function toggleDarkMode() {
+      isDarkMode = !isDarkMode;
+      localStorage.setItem('lusweti_dark_mode', isDarkMode);
+      initTheme();
+    }
+
+    function initLanguage() {
+      document.getElementById('lang-text').textContent = currentLanguage === 'en' ? 'SWA' : 'ENG';
+      const learnLangBtn = document.getElementById('learn-lang-btn-text');
+      if (learnLangBtn) {
+        learnLangBtn.textContent = currentLanguage === 'en' ? 'Badili: Kiswahili' : 'Switch: English';
+      }
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const txt = currentLanguage === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-sw');
+        if (txt) el.textContent = txt;
+      });
+      renderProducts();
+      renderLessons();
+    }
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'en' ? 'sw' : 'en';
+      localStorage.setItem('lusweti_lang', currentLanguage);
+      initLanguage();
+    }
+
+    // 4. NAVIGATION
+    function navigateTo(tabId) {
+      currentTab = tabId;
+      ['home', 'shop', 'learn', 'expert', 'providers'].forEach(t => {
+        const screen = document.getElementById('screen-' + t);
+        const btn = document.getElementById('tab-btn-' + t);
+        if (screen) screen.classList.toggle('hidden', t !== tabId);
+        if (btn) btn.classList.toggle('active', t === tabId);
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      updateStickyBar();
+    }
+
+    // 5. SHOP & PRODUCTS LOGIC
+    function switchShopSubTab(tab) {
+      document.getElementById('btn-sub-products').classList.toggle('active', tab === 'products');
+      document.getElementById('btn-sub-orders').classList.toggle('active', tab === 'orders');
+      document.getElementById('view-products').classList.toggle('hidden', tab !== 'products');
+      document.getElementById('view-orders').classList.toggle('hidden', tab !== 'orders');
+      updateStickyBar();
+    }
+
+    function renderProducts() {
+      // Category chips
+      const cats = ['All', 'Livestock Feeds', 'Seeds & Planting', 'Fertilizers', 'Veterinary & Health', 'Farm Tools'];
+      const chipsContainer = document.getElementById('products-category-chips');
+      chipsContainer.innerHTML = cats.map(c => `
+        <button class="chip-btn ${selectedProductCategory === c ? 'active' : ''}" onclick="filterProductsCategory('${c}')">
+          ${c}
+        </button>
+      `).join('');
+
+      // Products list
+      const listContainer = document.getElementById('products-list');
+      const filtered = selectedProductCategory === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.category === selectedProductCategory);
+      
+      listContainer.innerHTML = filtered.map(p => {
+        const qty = cart[p.id] || 0;
+        const title = currentLanguage === 'sw' ? p.swahiliName : p.name;
+        const desc = currentLanguage === 'sw' ? p.descSw : p.descEn;
+
+        return `
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="${p.image}" alt="${p.name}" loading="lazy" />
+              <div class="product-unit-tag">${p.unit}</div>
+            </div>
+            <div class="product-info">
+              <div>
+                <h4 class="product-title">${title}</h4>
+                <div class="product-desc">${desc}</div>
+                <div style="font-size:11px; color:var(--text-muted);">Supplier: ${p.supplier}</div>
+              </div>
+              <div class="product-bottom-row">
+                <div class="product-price">KES ${p.priceKes.toLocaleString()}</div>
+                <div>
+                  ${qty === 0 ? `
+                    <button class="add-cart-btn" onclick="updateQty('${p.id}', 1)">
+                      <span>+</span>
+                      <span>${currentLanguage === 'sw' ? 'Weka Kikapuni' : 'Add to Cart'}</span>
+                    </button>
+                  ` : `
+                    <div class="qty-controls">
+                      <button class="qty-btn" onclick="updateQty('${p.id}', -1)">-</button>
+                      <span class="qty-num">${qty}</span>
+                      <button class="qty-btn qty-btn-add" onclick="updateQty('${p.id}', 1)">+</button>
+                    </div>
+                  `}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterProductsCategory(cat) {
+      selectedProductCategory = cat;
+      renderProducts();
+    }
+
+    function updateQty(productId, delta) {
+      const current = cart[productId] || 0;
+      const next = current + delta;
+      if (next <= 0) {
+        delete cart[productId];
+      } else {
+        cart[productId] = next;
+      }
+      localStorage.setItem('lusweti_cart', JSON.stringify(cart));
+      renderProducts();
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalItems = Object.values(cart).reduce((a, b) => a + b, 0);
+      let totalKes = 0;
+      Object.keys(cart).forEach(id => {
+        const prod = PRODUCTS.find(p => p.id === id);
+        if (prod) totalKes += prod.priceKes * cart[id];
+      });
+
+      // Header Badge
+      const badge = document.getElementById('cart-badge');
+      if (totalItems > 0) {
+        badge.textContent = totalItems;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+
+      // Sticky Bar
+      document.getElementById('sticky-items-text').textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'items'} in cart`;
+      document.getElementById('sticky-total-kes').textContent = `KES ${totalKes.toLocaleString()}`;
+      updateStickyBar();
+    }
+
+    function updateStickyBar() {
+      const totalItems = Object.values(cart).reduce((a, b) => a + b, 0);
+      const isShopProducts = currentTab === 'shop' && !document.getElementById('view-products').classList.contains('hidden');
+      document.getElementById('sticky-order-bar').classList.toggle('hidden', !(totalItems > 0 && isShopProducts));
+    }
+
+    // Cart Modal
+    function openCartModal() {
+      const modal = document.getElementById('modal-cart');
+      const container = document.getElementById('cart-modal-items');
+      const keys = Object.keys(cart);
+
+      if (keys.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding:30px 10px; color:var(--text-muted); font-size:13px;">Your cart is empty. Tap 'Order Inputs' to add products.</div>`;
+        document.getElementById('cart-modal-total').textContent = 'KES 0';
+      } else {
+        let total = 0;
+        container.innerHTML = keys.map(id => {
+          const prod = PRODUCTS.find(p => p.id === id);
+          if (!prod) return '';
+          const qty = cart[id];
+          const subtotal = prod.priceKes * qty;
+          total += subtotal;
+          const title = currentLanguage === 'sw' ? prod.swahiliName : prod.name;
+
+          return `
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:10px; background:var(--bg-canvas); border-radius:12px; margin-bottom:8px;">
+              <div>
+                <div style="font-size:13px; font-weight:800;">${title}</div>
+                <div style="font-size:11px; color:var(--text-muted);">KES ${prod.priceKes.toLocaleString()} · ${prod.unit}</div>
+              </div>
+              <div class="qty-controls">
+                <button class="qty-btn" onclick="updateQty('${prod.id}', -1); openCartModal();">-</button>
+                <span class="qty-num">${qty}</span>
+                <button class="qty-btn qty-btn-add" onclick="updateQty('${prod.id}', 1); openCartModal();">+</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+        document.getElementById('cart-modal-total').textContent = `KES ${total.toLocaleString()}`;
+      }
+
+      modal.classList.remove('hidden');
+    }
+    function closeCartModal() {
+      document.getElementById('modal-cart').classList.add('hidden');
+    }
+
+    // Checkout Modal
+    function openCheckoutModal() {
+      const totalItems = Object.values(cart).reduce((a, b) => a + b, 0);
+      if (totalItems === 0) {
+        alert('Please add items to your cart first.');
+        return;
+      }
+      document.getElementById('modal-checkout').classList.remove('hidden');
+    }
+    function closeCheckoutModal() {
+      document.getElementById('modal-checkout').classList.add('hidden');
+    }
+    function setOrderLocation(loc) {
+      document.getElementById('order-location').value = loc;
+    }
+
+    // Handle Order Submission
+    function handleOrderSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('order-name').value.trim();
+      const phone = document.getElementById('order-phone').value.trim();
+      const location = document.getElementById('order-location').value.trim();
+
+      let totalKes = 0;
+      let itemSummaries = [];
+      Object.keys(cart).forEach(id => {
+        const prod = PRODUCTS.find(p => p.id === id);
+        if (prod) {
+          totalKes += prod.priceKes * cart[id];
+          itemSummaries.push(`${cart[id]}x ${prod.name}`);
+        }
+      });
+
+      const randomId = 'ORD-' + Math.floor(1000 + Math.random() * 9000);
+      lastPlacedOrder = {
+        id: randomId,
+        date: 'Just now',
+        name,
+        phone,
+        location,
+        totalKes,
+        status: 'Pending M-Pesa',
+        items: itemSummaries.join(', ')
+      };
+
+      orders.unshift(lastPlacedOrder);
+      localStorage.setItem('lusweti_orders', JSON.stringify(orders));
+
+      // Clear cart
+      cart = {};
+      localStorage.setItem('lusweti_cart', JSON.stringify(cart));
+      updateCartUI();
+      renderOrders();
+
+      // Close checkout and show success
+      closeCheckoutModal();
+      document.getElementById('order-success-details').innerHTML = `
+        <div><strong>Order ID:</strong> ${lastPlacedOrder.id}</div>
+        <div><strong>Customer:</strong> ${name} (${phone})</div>
+        <div><strong>Delivery to:</strong> ${location}</div>
+        <div><strong>Total M-Pesa:</strong> KES ${totalKes.toLocaleString()}</div>
+      `;
+      document.getElementById('modal-order-success').classList.remove('hidden');
+    }
+
+    function closeOrderSuccessModal() {
+      document.getElementById('modal-order-success').classList.add('hidden');
+    }
+
+    // M-Pesa Simulator
+    function showMpesaPrompt() {
+      if (!lastPlacedOrder) return;
+      document.getElementById('mpesa-prompt-text').textContent = 
+        `Do you want to pay KES ${lastPlacedOrder.totalKes.toLocaleString()} to LUSWETI AGRIHUB AFRICA (Paybill 522522, Account 1276891598, Ref: ${lastPlacedOrder.id})?`;
+      document.getElementById('modal-mpesa-prompt').classList.remove('hidden');
+    }
+    function closeMpesaPrompt() {
+      document.getElementById('modal-mpesa-prompt').classList.add('hidden');
+    }
+    function completeMpesaPayment() {
+      if (lastPlacedOrder) {
+        lastPlacedOrder.status = 'Paid & Dispatched';
+        const idx = orders.findIndex(o => o.id === lastPlacedOrder.id);
+        if (idx !== -1) orders[idx].status = 'Paid & Dispatched';
+        localStorage.setItem('lusweti_orders', JSON.stringify(orders));
+        renderOrders();
+      }
+      closeMpesaPrompt();
+      closeOrderSuccessModal();
+      alert('M-Pesa payment successful! Order marked as Paid & Dispatched.');
+      navigateTo('shop');
+      switchShopSubTab('orders');
+    }
+
+    // Render Orders
+    function renderOrders() {
+      document.getElementById('orders-count-badge').textContent = orders.length;
+      const container = document.getElementById('orders-list');
+      if (orders.length === 0) {
+        container.innerHTML = `<div class="card" style="text-align:center; color:var(--text-muted); font-size:13px;">No orders placed yet.</div>`;
+        return;
+      }
+
+      container.innerHTML = orders.map(o => `
+        <div class="card" style="margin-bottom:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <div style="font-weight:800; color:var(--brand-blue); font-size:14px;">${o.id}</div>
+            <span style="font-size:10px; font-weight:800; padding:2px 8px; border-radius:12px; ${o.status === 'Paid & Dispatched' ? 'background:rgba(11,110,11,0.15); color:var(--brand-green);' : 'background:rgba(242,179,61,0.2); color:#B45309;'}">
+              ${o.status}
+            </span>
+          </div>
+          <div style="font-size:11px; color:var(--text-muted); margin-bottom:8px;">${o.date}</div>
+          <div style="font-size:12px; margin-bottom:6px;"><strong>Items:</strong> ${o.items}</div>
+          <div style="font-size:12px; margin-bottom:6px;"><strong>Delivery to:</strong> ${o.location} (${o.name} - ${o.phone})</div>
+          <div style="background:rgba(11,110,11,0.08); border-radius:8px; padding:6px 10px; font-size:11px; color:var(--brand-green); font-weight:700; margin-bottom:6px;">
+            Lipa na M-Pesa: Paybill <strong>522522</strong> | Account: <strong>1276891598</strong>
+          </div>
+          <div style="font-size:15px; font-weight:800; color:var(--brand-green); margin-top:8px; border-top:1px solid var(--border-subtle); padding-top:6px;">
+            Total: KES ${o.totalKes.toLocaleString()}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 6. LEARN TAB
+    function renderLessons() {
+      const cats = ['All', 'Crops', 'Livestock', 'Finance'];
+      document.getElementById('lesson-category-chips').innerHTML = cats.map(c => `
+        <button class="chip-btn ${selectedLessonCategory === c ? 'active' : ''}" onclick="filterLessonsCategory('${c}')">
+          ${c}
+        </button>
+      `).join('');
+
+      const filtered = selectedLessonCategory === 'All' ? LESSONS : LESSONS.filter(l => l.category === selectedLessonCategory);
+      document.getElementById('lessons-list').innerHTML = filtered.map(l => {
+        const title = currentLanguage === 'sw' ? l.swahiliTitle : l.englishTitle;
+        const summary = currentLanguage === 'sw' ? l.summarySw : l.summaryEn;
+
+        return `
+          <div class="card">
+            <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:700; color:var(--brand-blue); margin-bottom:4px;">
+              <span>${l.category.toUpperCase()}</span>
+              <span style="color:var(--text-muted);">${l.duration}</span>
+            </div>
+            <h3 style="font-size:15px; font-weight:800; margin-bottom:6px; line-height:1.3;">${title}</h3>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:8px;">${summary}</p>
+            <div style="font-size:11px; color:var(--text-muted); margin-bottom:12px;">Instructor: <strong>${l.instructor}</strong></div>
+            <button class="icon-btn" onclick="openLessonModal('${l.id}')" style="width:100%; padding:10px; background:var(--brand-blue); color:#FFF; border:none;">
+              ▶ ${currentLanguage === 'sw' ? 'Tazama Somo & Mbinu' : 'Watch Lesson & Key Tips'}
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterLessonsCategory(cat) {
+      selectedLessonCategory = cat;
+      renderLessons();
+    }
+
+    function openLessonModal(id) {
+      const l = LESSONS.find(item => item.id === id);
+      if (!l) return;
+      const title = currentLanguage === 'sw' ? l.swahiliTitle : l.englishTitle;
+      const summary = currentLanguage === 'sw' ? l.summarySw : l.summaryEn;
+      const tips = currentLanguage === 'sw' ? l.tipsSw : l.tipsEn;
+
+      document.getElementById('lesson-modal-cat').textContent = `${l.category} · ${l.duration}`;
+      document.getElementById('lesson-modal-content').innerHTML = `
+        <div style="background:#0F172A; border-radius:16px; aspect-ratio:16/9; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#FFF; margin-bottom:14px; text-align:center; padding:16px;">
+          <div style="width:50px; height:50px; border-radius:50%; background:var(--brand-blue); display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:8px;">▶</div>
+          <div style="font-size:13px; font-weight:800; max-width:80%;">${title}</div>
+          <div style="font-size:10px; color:#94A3B8; margin-top:4px;">Lusweti Field Practical Video</div>
+        </div>
+        <h4 style="font-size:16px; font-weight:800; margin-bottom:6px;">${title}</h4>
+        <div style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">${l.instructor}</div>
+        <p style="font-size:13px; line-height:1.4; margin-bottom:14px;">${summary}</p>
+        <div style="font-size:12px; font-weight:800; margin-bottom:8px;">${currentLanguage === 'sw' ? 'Mambo Muhimu ya Kufuata:' : 'Key Farmer Action Steps:'}</div>
+        <ul style="padding-left:18px; font-size:12px; line-height:1.5; color:var(--text-main);">
+          ${tips.map(t => `<li style="margin-bottom:4px;">${t}</li>`).join('')}
+        </ul>
+      `;
+      document.getElementById('modal-lesson').classList.remove('hidden');
+    }
+    function closeLessonModal() {
+      document.getElementById('modal-lesson').classList.add('hidden');
+    }
+
+    // 7. ASK EXPERT TAB
+    function switchExpertSubTab(tab) {
+      document.getElementById('btn-sub-ask').classList.toggle('active', tab === 'ask');
+      document.getElementById('btn-sub-questions').classList.toggle('active', tab === 'questions');
+      document.getElementById('view-ask-form').classList.toggle('hidden', tab !== 'ask');
+      document.getElementById('view-ask-thankyou').classList.add('hidden');
+      document.getElementById('view-questions-list').classList.toggle('hidden', tab !== 'questions');
+    }
+
+    function handleExpertFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('ask-name').value.trim();
+      const phone = document.getElementById('ask-phone').value.trim();
+      const topic = document.getElementById('ask-topic').value;
+      const question = document.getElementById('ask-question').value.trim();
+
+      const newQ = {
+        id: 'q-' + Date.now().toString().slice(-4),
+        name,
+        phone,
+        topic,
+        question,
+        status: 'Received - Expert Reviewing'
+      };
+
+      questions.unshift(newQ);
+      localStorage.setItem('lusweti_questions', JSON.stringify(questions));
+      renderQuestions();
+
+      // Show Thank You message as requested:
+      const msg = currentLanguage === 'sw'
+        ? `"Asante! Swali lako limehifadhiwa na kutumwa kwa wataalamu wa Lusweti Agrihub. Tutawasiliana nawe au kukutumia SMS punde kupitia nambari ${phone}."`
+        : `"Asante! Your question has been submitted to Lusweti Agrihub agricultural experts. We will call or SMS you shortly on ${phone}."`;
+
+      document.getElementById('thankyou-msg-box').textContent = msg;
+      document.getElementById('view-ask-form').classList.add('hidden');
+      document.getElementById('view-ask-thankyou').classList.remove('hidden');
+    }
+
+    function resetAskForm() {
+      document.getElementById('ask-question').value = '';
+      document.getElementById('view-ask-thankyou').classList.add('hidden');
+      document.getElementById('view-ask-form').classList.remove('hidden');
+    }
+
+    function renderQuestions() {
+      document.getElementById('questions-count-badge').textContent = questions.length;
+      const container = document.getElementById('questions-list');
+      container.innerHTML = questions.map(q => `
+        <div class="card" style="margin-bottom:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <span style="font-size:10px; font-weight:800; background:rgba(10,58,150,0.1); color:var(--brand-blue); padding:2px 8px; border-radius:10px;">${q.topic}</span>
+            <span style="font-size:10px; font-weight:700; ${q.status.includes('Answered') ? 'color:var(--brand-green);' : 'color:#B45309;'}">${q.status}</span>
+          </div>
+          <div style="font-size:13px; font-weight:800; margin-bottom:6px;">"${q.question}"</div>
+          <div style="font-size:11px; color:var(--text-muted); margin-bottom:8px;">From: ${q.name} (${q.phone})</div>
+          ${q.answer ? `
+            <div style="background:rgba(11,110,11,0.08); border-left:3px solid var(--brand-green); padding:8px 12px; border-radius:8px; font-size:12px; margin-top:6px;">
+              <strong style="color:var(--brand-green);">${q.answeredBy || 'Expert Answer'}:</strong> ${q.answer}
+            </div>
+          ` : `
+            <div style="font-size:11px; color:#B45309; font-style:italic;">Dispatched to Githunguri field agronomist. SMS response pending.</div>
+          `}
+        </div>
+      `).join('');
+    }
+
+    // 8. PROVIDERS TAB
+    function renderProviders() {
+      const types = ['All', 'Vet', 'AI provider', 'Agrovet', 'Buyer'];
+      document.getElementById('provider-category-chips').innerHTML = types.map(t => `
+        <button class="chip-btn ${selectedProviderCategory === t ? 'active' : ''}" onclick="filterProvidersCategory('${t}')">
+          ${t}
+        </button>
+      `).join('');
+
+      const filtered = selectedProviderCategory === 'All' ? PROVIDERS : PROVIDERS.filter(p => p.type === selectedProviderCategory);
+      document.getElementById('providers-list').innerHTML = filtered.map(p => `
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+            <div>
+              <h3 style="font-size:15px; font-weight:800;">${p.name}</h3>
+              <div style="font-size:11px; color:var(--brand-blue); font-weight:700; margin-top:2px;">${p.type} · ${p.rating}</div>
+            </div>
+          </div>
+          <div style="font-size:12px; color:var(--text-muted); margin-bottom:6px;">📍 ${p.location}</div>
+          <div style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:12px;">
+            ${p.services.map(s => `<span style="font-size:10px; background:var(--bg-canvas); padding:2px 8px; border-radius:8px; border:1px solid var(--border-subtle);">✓ ${s}</span>`).join('')}
+          </div>
+          <div style="display:flex; gap:8px;">
+            <a href="tel:${p.phone.replace(/\\s+/g, '')}" class="icon-btn" style="flex:1; padding:10px; text-decoration:none; justify-content:center;">📞 Call ${p.phone}</a>
+            <button class="icon-btn" onclick="openRequestContactModal('${p.id}')" style="flex:1; padding:10px; background:var(--brand-blue); color:#FFF; border:none; justify-content:center;">
+              ${currentLanguage === 'sw' ? 'Omba Mawasiliano' : 'Request contact'}
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterProvidersCategory(type) {
+      selectedProviderCategory = type;
+      renderProviders();
+    }
+
+    function openRequestContactModal(id) {
+      const p = PROVIDERS.find(item => item.id === id);
+      if (!p) return;
+      selectedProviderForContact = p;
+      document.getElementById('request-contact-provider-name').textContent = `${p.name} (${p.type}) - ${p.location}`;
+      document.getElementById('contact-request-form').classList.remove('hidden');
+      document.getElementById('contact-request-success').classList.add('hidden');
+      document.getElementById('modal-request-contact').classList.remove('hidden');
+    }
+    function closeRequestContactModal() {
+      document.getElementById('modal-request-contact').classList.add('hidden');
+    }
+    function handleContactRequestSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contact-request-form').classList.add('hidden');
+      document.getElementById('contact-request-success').classList.remove('hidden');
+    }
+
+    // 9. INSTANT SINGLE-FILE DOWNLOAD FUNCTION
+    function downloadSingleFileHtml() {
+      const fullHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      const blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "lusweti-agrihub-africa.html";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // 10. PWA INSTALLATION FOR PHONES & FARMERS
+    let deferredInstallPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+    });
+
+    window.addEventListener('appinstalled', () => {
+      deferredInstallPrompt = null;
+      alert('Lusweti Agrihub Africa has been successfully added to your home screen!');
+    });
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+
+    function triggerPwaInstall() {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.then((choice) => {
+          if (choice.outcome === 'accepted') {
+            deferredInstallPrompt = null;
+          }
+        });
+      } else {
+        openInstallGuideModal();
+      }
+    }
+
+    function triggerPwaInstallPromptDirect() {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.then((choice) => {
+          if (choice.outcome === 'accepted') {
+            deferredInstallPrompt = null;
+            closeInstallGuideModal();
+          }
+        });
+      } else {
+        alert('To install on your phone:\n1. Tap the 3 dots (⫶) in Chrome top-right.\n2. Tap "Install app" or "Add to Home screen".');
+      }
+    }
+
+    function openInstallGuideModal() {
+      document.getElementById('modal-install-guide').classList.remove('hidden');
+    }
+    function closeInstallGuideModal() {
+      document.getElementById('modal-install-guide').classList.add('hidden');
+    }
+
+    // 11. CLIPBOARD COPY UTILITY
+    function copyToClipboard(text, btnElement) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          if (btnElement) {
+            const original = btnElement.textContent;
+            btnElement.textContent = 'Copied!';
+            setTimeout(() => { btnElement.textContent = original; }, 2000);
+          }
+        }).catch(() => {
+          prompt('Copy to clipboard: Ctrl+C or long-press', text);
+        });
+      } else {
+        prompt('Copy to clipboard: Ctrl+C or long-press', text);
+      }
+    }
+  </script>
+
+
+</body></html>
